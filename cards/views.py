@@ -7,7 +7,6 @@ from django.views.generic import ListView, DetailView
 # Create your views here.
 class CardListView(ListView):
     model = Card
-    paginate_by = 6
     context_object_name = 'cards'
 
 class CardDetailView(DetailView):
