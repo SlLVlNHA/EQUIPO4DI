@@ -16,7 +16,7 @@ Rivera Zavala Javier Alejandro
 Para ejecutar el proyecto, sigue estos pasos:
 
 1. Clona el repositorio a tu máquina local con el siguiente comando
-   - '''git clone https://github.com/tu-usuario/blog-de-notas-django.git'''
+   - ´´´git clone https://github.com/SlLVlNHA/EQUIPO4DI.git´´´
 2. Abre la terminal y navega al directorio del proyecto.
 3. Crear un entorno virtual si asi lo deseas, con el comando:
    - python3 -m venv myenv, source myenv/bin/activate
