@@ -4,12 +4,12 @@
 Este es un proyecto de un blog de notas basado en Django. Proporciona una plataforma simple y fácil de usar para que los usuarios puedan crear, editar y eliminar notas.
 
 ## Integrantes
-Blancas Peralta Alejandro
-Díaz Gómez Silvia
-Escorza Cantú Mauricio
-López Diego Gabriela 
-Jimenez Reyes Abraham
-Rivera Zavala Javier Alejandro
+- Blancas Peralta Alejandro
+- Díaz Gómez Silvia
+- Escorza Cantú Mauricio
+- López Diego Gabriela 
+- Jimenez Reyes Abraham
+- Rivera Zavala Javier Alejandro
 
 
 ## Instrucciones de Uso
