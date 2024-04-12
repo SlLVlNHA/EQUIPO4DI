@@ -1,0 +1,109 @@
+#register-html .container {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centro horizontalmente */
+  height: 100vh;
+}
+    
+#register-html .register-container {
+  width: 33%;
+  height: 68vh;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #f0f0f0;
+  background-color: rgba(240, 240, 240, 0.85);
+}
+  
+#register-html form {
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+#register-html input[type="text"],
+#register-html input[type="email"],
+#register-html input[type="password"] {
+  width: calc(100% - 22px); /* 22px es el total del padding + borde */
+  padding: 8px;
+  margin-top: 3vh;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  color: #3C3B39; 
+  font-size: 100%;
+  outline: none;
+}
+
+#register-html input[type="text"]:focus,
+#register-html input[type="email"]:focus,
+#register-html input[type="password"]:focus {
+  border-color: #4C8D86; /* Cambiar el color del borde al seleccionar */
+  border-width: 2px;
+  outline: none; /* Eliminar el contorno predeterminado */
+}      
+
+#register-html input[type="submit"] {
+  width: calc(100% - 22px);
+  padding: 8px;
+  margin-top: 5vh;
+  background-image: linear-gradient(to left, #4C8D86, #FA7F91);
+  color: #fff;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;            
+}
+
+#register-html input[type="submit"]:hover {
+background-image: linear-gradient(to left, #336c67, #e8697d);
+}
+
+#register-html .register-link {
+  color: #666;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 100%; 
+  margin-right: 4vh;          
+}
+
+#register-html .register-link a {
+  font-size: 100%;
+  color: #E35D6F;
+  text-decoration: none;
+}
+
+#register-html .register-link a:hover {
+  color: #DA2534;
+  cursor: pointer;
+  display: inline-block;            
+}
+
+#register-html body {  
+  font-family: 'Literata', sans-serif;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+#register-html h2{
+  margin-top: 65px;             
+  font-size: 150%;
+  color: #335B57;
+  text-align: center; /* Centro el texto "Registrarse" */
+}
+
+#register-html p1{
+  margin-top: 65px;
+  margin-left: 6vh;             
+  font-size: 100%;
+  color: #335B57;
+  text-align: center;
+}    
+
+#register-html form input{
+  height: 40px;
+  padding: 0 10px;
+}
+
+::selection {
+  background-color: rgba(0, 0, 0, 0.3);        
+}   

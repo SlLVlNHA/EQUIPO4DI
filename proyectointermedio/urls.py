@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', include('home.urls')),
     path('tablero/',include('cards.urls')),
+    path('register/',include('register.urls')),
 ]
