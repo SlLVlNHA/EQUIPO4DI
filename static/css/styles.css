@@ -1,10 +1,9 @@
 div.background {
     border-radius: 10px;
-    background-color: #ffffff;
-    opacity: 0.4;
+    margin: 2px;
     padding: 1%;
-    height: 10em;
-    width: 24em;
+    height: 13em;
+    width: 22em;
   }
   
   
@@ -23,5 +22,10 @@ div.background {
   }
 
   div.card {
-    width: 26em;
+    width: 24em;
+    height: 22em;
+    box-shadow:
+    inset 0 -20px 80px rgba(0,0,0,0.2),
+    inset 0 5px 10px rgba(0,0,0,0.2),
+    0 5px 6px 5px rgba(0,0,0,0.2);
   }
