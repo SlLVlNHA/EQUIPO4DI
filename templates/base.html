@@ -36,7 +36,7 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
           <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
             <div class="navbar-nav">
-              <a class="nav-item nav-link active" href="#"><h4>MI TABLERO</h4></a>
+              <a class="nav-item nav-link active" href="{% url 'tablero'%}"><h4>MI TABLERO</h4></a>
             </div>
           </div>
               <ul class="navbar-nav mr-auto">
@@ -47,7 +47,7 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                      
-                          <a class="dropdown-item" href="#">Mis tarjetas</a>                        
+                          <a class="dropdown-item" href="{% url 'tablero'%}">Mis tarjetas</a>                        
                           <a class="dropdown-item" href="#">Cerrar sesion</a>   
                         </div>
                       
