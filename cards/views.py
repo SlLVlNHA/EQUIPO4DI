@@ -16,7 +16,7 @@ class CardDetailView(DetailView):
 
 class CardDeleteView(DeleteView):
     model = Card
-    success_url = '/tablero/cards/'  # URL a la que se redirigirá después de eliminar correctamente la nota
+    success_url = '/tablero/'  # URL a la que se redirigirá después de eliminar correctamente la nota
     template_name = 'cards/delete_card.html'  # Plantilla que se utilizará para mostrar la confirmación de eliminación
 
 #Mau
