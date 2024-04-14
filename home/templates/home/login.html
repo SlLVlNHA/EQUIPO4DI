@@ -24,9 +24,14 @@
             <h3 >Iniciar sesión</h3> <!-- Centra el texto "Iniciar sesión" -->
             <form method="post">
                 {% csrf_token %}                
-                <input type="email" name="username" placeholder="Correo electrónico" required>
+                <!--<input type="email" name="username" placeholder="Correo electrónico" required>-->
+                {{form.username}}
+                {{form.username.errors}}
                 <i class="far fa-envelope" style="color: #4C8D86;"></i>                                
-                <input id="pswrd" type="password" name="password" placeholder="Contraseña" required>                       
+                <!--<input id="pswrd" type="password" name="password" placeholder="Contraseña" required>  
+                  -->
+                {{form.password}}
+                {{form.password.errors}}   
                 <i class="fas fa-lock" id="lock-icon" style="color: #4C8D86;" onclick="show()" ></i> 
                 <div class="tooltip" id="tooltip">Haz click para visualizar/ocultar la contraseña</div>                      
                 <input type="submit" value="Ingresar">
