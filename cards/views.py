@@ -2,9 +2,20 @@ from django.shortcuts import render
 from .models import Card
 from django.db.models import Q
 from django.views import View
-from django.views.generic import ListView, DetailView, DeleteView
+from .forms import CardForm
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import ListView, DetailView, DeleteView, CreateView
 
-# Create your views here.
+#Creacion de una nueva nota
+class CardCreateView(LoginRequiredMixin, CreateView):
+    model = Card
+    form_class = CardForm
+    success_url = '/tablero/'  
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user  
+        return super().form_valid(form)
+
 class CardListView(ListView):
     model = Card
     paginate_by = 6
