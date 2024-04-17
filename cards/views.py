@@ -6,6 +6,7 @@ from .forms import CardForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView, DetailView, DeleteView, CreateView, UpdateView
 
+
 #Creacion de una nueva nota
 class CardCreateView(LoginRequiredMixin, CreateView):
     model = Card
@@ -16,7 +17,6 @@ class CardCreateView(LoginRequiredMixin, CreateView):
         form.instance.user = self.request.user  
         return super().form_valid(form)
 
-# Create your views here.
 class CardListView(ListView):
     model = Card
     paginate_by = 6
@@ -31,12 +31,10 @@ class CardDeleteView(DeleteView):
     success_url = '/tablero/'  # URL a la que se redirigirá después de eliminar correctamente la nota
     template_name = 'cards/delete_card.html'  # Plantilla que se utilizará para mostrar la confirmación de eliminación
 
-class CardUpdateView(UpdateView):
-    model = Card
-    form_class = CardForm
-    success_url = '/tablero/'
+
 #Mau
-class BlogSearchView(ListView):
+class CardSearchView(ListView):
+
     model = Card
     template_name = 'card_list.html'
     context_object_name = 'cards'
@@ -45,8 +43,25 @@ class BlogSearchView(ListView):
     def get_queryset(self):
         queryset = super().get_queryset()
         query = self.request.GET.get('q')
+        color = self.request.GET.get('color')
+
 
         if query:
             queryset = queryset.filter(Q(title__icontains=query) | Q(content__icontains=query))
 
+
+        if color:
+            queryset = queryset.filter(color=color)
+
         return queryset
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        query = self.request.GET.get('q')
+        color = self.request.GET.get('color')
+
+        if not context['cards'] and (query or color):
+            context['no_results_message'] = "No se encontraron tarjetas con esos criterios de búsqueda."
+
+        return context
+
