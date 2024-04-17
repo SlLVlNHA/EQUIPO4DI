@@ -12,6 +12,12 @@
   </form>
 </div>
 <br>
+
+<form method="get" action="{% url 'tablero' %}">
+  {{form.as_p}}
+  <input type="submit" value="Buscar" class="btn btn-primary btn-sm">
+</form>
+
   <div class="row mt-3">
     {% for card in cards %}
         <div class="col-md-4 mt-5">

@@ -3,12 +3,27 @@ from .models import Card
 from django.db.models import Q
 from django.views import View
 from django.views.generic import ListView, DetailView, DeleteView
+from .filters import CardFilter
 
 # Create your views here.
 class CardListView(ListView):
-    model = Card
-    paginate_by = 6
+    #model = Card
+    #paginate_by = 6
+    #context_object_name = 'cards'
+    queryset = Card.objects.all()
+    template_name = 'card_list.html'
     context_object_name = 'cards'
+    paginate_by = 6
+    
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        self.filterset = CardFilter(self.request.GET,queryset=queryset)
+        return self.filterset.qs
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['form'] = self.filterset.form
+        return context
 
 class CardDetailView(DetailView):
     model = Card
