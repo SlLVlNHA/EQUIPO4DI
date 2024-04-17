@@ -6,7 +6,9 @@
     <div class="col-md-6">
         <div class="card border-dark rounded p-2">
             <h3 class="text-center mb-2">¡Crea una nueva nota!</h3>
-            <form action="{% url 'new_card' %}" method="post">
+
+            <form action="" method="post">
+
                 {% csrf_token %}
                 <div class="mb">
                     <label for="id_title" class="form-label fs-9">Nombre:</label>
@@ -22,7 +24,12 @@
                     <label for="id_color" class="form-label fs-9 me-2">Color:</label>
                     {{ form.color }}
                 </div>
-                <button type="submit" class="btn btn-success">Listo</button>
+
+                <div class="d-flex justify-content-between mt-3"> <!-- Div para posicionar los botones -->
+                    <button type="submit" class="btn btn-success">Listo</button>
+                    <button type="submit" class="btn btn-success">Atrás</button>
+                </div>
+
             </form>
         </div>
     </div>
