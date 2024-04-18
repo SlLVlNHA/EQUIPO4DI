@@ -4,7 +4,8 @@ from django.db.models import Q
 from django.views import View
 from .forms import CardForm
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic import ListView, DetailView, DeleteView, CreateView
+from django.views.generic import ListView, DetailView, DeleteView, CreateView, UpdateView
+
 from .filters import CardFilter
 
 #Creacion de una nueva nota
@@ -45,8 +46,15 @@ class CardDeleteView(DeleteView):
     success_url = '/tablero/'  # URL a la que se redirigirá después de eliminar correctamente la nota
     template_name = 'cards/delete_card.html'  # Plantilla que se utilizará para mostrar la confirmación de eliminación
 
+class CardUpdateView(UpdateView):
+    model = Card
+    form_class = CardForm
+    success_url = '/tablero/' 
+
+
 #Mau
-class CardSearchView(ListView):
+class BlogSearchView(ListView):
+
     model = Card
     template_name = 'card_list.html'
     context_object_name = 'cards'
@@ -57,8 +65,10 @@ class CardSearchView(ListView):
         query = self.request.GET.get('q')
         color = self.request.GET.get('color')
 
+
         if query:
             queryset = queryset.filter(Q(title__icontains=query) | Q(content__icontains=query))
+
 
         if color:
             queryset = queryset.filter(color=color)
@@ -74,3 +84,4 @@ class CardSearchView(ListView):
             context['no_results_message'] = "No se encontraron tarjetas con esos criterios de búsqueda."
 
         return context
+
