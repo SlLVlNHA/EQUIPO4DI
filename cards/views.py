@@ -18,7 +18,7 @@ class CardCreateView(LoginRequiredMixin, CreateView):
         form.instance.user = self.request.user  
         return super().form_valid(form)
 
-class CardListView(ListView):
+class CardListView(LoginRequiredMixin,ListView):
     #model = Card
     #paginate_by = 6
     #context_object_name = 'cards'
