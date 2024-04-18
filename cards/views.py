@@ -6,6 +6,7 @@ from .forms import CardForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView, DetailView, DeleteView, CreateView, UpdateView
 
+from .filters import CardFilter
 
 #Creacion de una nueva nota
 class CardCreateView(LoginRequiredMixin, CreateView):
@@ -18,9 +19,23 @@ class CardCreateView(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 class CardListView(ListView):
-    model = Card
-    paginate_by = 6
+    #model = Card
+    #paginate_by = 6
+    #context_object_name = 'cards'
+    queryset = Card.objects.all()
+    template_name = 'card_list.html'
     context_object_name = 'cards'
+    paginate_by = 6
+    
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        self.filterset = CardFilter(self.request.GET,queryset=queryset)
+        return self.filterset.qs
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['form'] = self.filterset.form
+        return context
 
 class CardDetailView(DetailView):
     model = Card
