@@ -21,22 +21,28 @@
 
   <div class="row mt-3">
     {% for card in cards %}
-        <div class="col-md-4 mt-5">
+        <div class="col-md-4 mt-3">
           {% if card.color == 0 %}
             <div class="card" style="background-color:#B6D7A8;">
+              <div class="card-title" style="background-color:#77d74d;color: #77d74d;">t</div>
           {% elif card.color == 1 %}
             <div class="card" style="background-color:#D9D2E9;">
+              <div class="card-title" style="background-color:#9372e0;color: #9372e0;">t</div>
           {% elif card.color == 2 %}
             <div class="card" style="background-color: #F4CCCC;">
+              <div class="card-title" style="background-color:#f7a7a7;color: #f7a7a7;">t</div>
           {% elif card.color == 3 %}
             <div class="card" style="background-color:#C9DAF8;">
+              <div class="card-title" style="background-color:#96baf7;color: #96baf7;">t</div>
           {% elif card.color == 4 %}
             <div class="card" style="background-color: #D5A6BD;">
+              <div class="card-title" style="background-color:#d182a8;color: #d182a8;">t</div>
           {% elif card.color == 5 %}
             <div class="card" style="background-color:#FFF2CC;">
+              <div class="card-title" style="background-color:#92d774;color: #92d774;">t</div>
           {% endif %}
               <div class="card-body">
-                <h6 class="card-subtitle text-end text-body-secondary mt-2">{{card.date}}</h6>
+                <h6 class="card-subtitle text-end text-body-secondary">{{card.date}}</h6>
                 <div class="tbox">
                   <h5 class="card-title p-1">{{card.title}}</h5>
                 </div>
