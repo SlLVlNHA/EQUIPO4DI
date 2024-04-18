@@ -5,7 +5,7 @@ class CardFilter(django_filters.FilterSet):
     class Meta:
         model = Card
         fields = {
-            'title' : ['istartswith'],
+            'title' : ['icontains'],
             'color' : ['exact'],
             'date' : ['exact']
         }
