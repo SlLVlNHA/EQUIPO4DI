@@ -15,7 +15,24 @@
     </button>
     <ul class="dropdown-menu p-3" style="margin: 15px;">
       <form method="get" action="{% url 'tablero' %}">
-        {{form.as_p}}
+        <div class="mb-3">
+          <label for="title_content">La nota contiene:</label>
+          <input type="text" id="title_content" name="title_content" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label for="color">Color:</label>
+          <select id="color" name="color" class="form-select">
+            <option value="">Todos</option>
+            <option value="0">PaleTurquoise</option>
+            <option value="1">CadetBlue</option>
+            <option value="2">Pink</option>
+            <option value="3">Puce</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="date">Date:</label>
+          <input type="date" id="date" name="date" class="form-control">
+        </div>
         <input type="submit" value="Filtrar" class="btn btn-success btn-sm">
       </form>
     </ul>
