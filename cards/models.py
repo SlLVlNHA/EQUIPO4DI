@@ -4,12 +4,10 @@ from django.contrib.auth.models import User
 from home.models import Client
 # Create your models here.
 COLOR_STATUS = (
-    (0,'petal'), #F98866
-    (1,'poppy'), #FF420E
-    (2,'stem'), #80BD9E
-    (3,'green'), #89DA59
-    (4,'azul'),
-    (5,'rojo'),
+    (0,'PaleTurquoise'), #B9DDDA
+    (1,'CadetBlue'), #58ACA4
+    (2,'Pink'), #FBBDBE
+    (3,'Puce'), #D68A95
 )
 
 class Card(models.Model):

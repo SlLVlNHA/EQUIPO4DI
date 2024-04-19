@@ -18,23 +18,35 @@ class CardCreateView(LoginRequiredMixin, CreateView):
         form.instance.user = self.request.user  
         return super().form_valid(form)
 
-class CardListView(LoginRequiredMixin,ListView):
-    #model = Card
-    #paginate_by = 6
-    #context_object_name = 'cards'
-    queryset = Card.objects.all()
+class CardListView(LoginRequiredMixin, ListView):
     template_name = 'card_list.html'
     context_object_name = 'cards'
     paginate_by = 6
-    
+
     def get_queryset(self):
-        queryset = super().get_queryset()
-        self.filterset = CardFilter(self.request.GET,queryset=queryset)
-        return self.filterset.qs
+        queryset = Card.objects.all()
+
+        title_content = self.request.GET.get('title_content')
+        color = self.request.GET.get('color')
+        date = self.request.GET.get('date')
+
+        if title_content:
+            queryset = queryset.filter(title__icontains=title_content) | queryset.filter(content__icontains=title_content)
+
+        if color:
+            queryset = queryset.filter(color=color)
+
+        if date:
+            queryset = queryset.filter(date=date)
+
+        return queryset
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['form'] = self.filterset.form
+
+        filter_set = CardFilter(self.request.GET, queryset=self.get_queryset())
+        context['form'] = filter_set.form
+
         return context
 
 class CardDetailView(DetailView):
@@ -54,7 +66,6 @@ class CardUpdateView(UpdateView):
 
 #Mau
 class BlogSearchView(ListView):
-
     model = Card
     template_name = 'card_list.html'
     context_object_name = 'cards'
