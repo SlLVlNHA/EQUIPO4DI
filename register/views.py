@@ -15,16 +15,10 @@ class RegisterView(CreateView):
     model = Client 
     form_class = SignUpForm
 
-    def form_valid(self, form):
-        '''
-        En esta parte, si el form es valido lo guardamos y usamos authenticate e iniciamos sesión
-        '''
-        print("Pasamos wiiiiiii")
+    def form_valid(self, form):         
         form.save()
         usuario = form.cleaned_data.get('username')
         password = form.cleaned_data.get('password1')
-        usuario = authenticate(username=usuario,password=password)
-        print("Pasamos wiiiiiii")
-        login(self.request, usuario)
-        print("Pasamos wiiiiiii")
-        return redirect('/tablero') #aqui?
+        usuario = authenticate(username=usuario,password=password)        
+        login(self.request, usuario)        
+        return redirect('/tablero') 

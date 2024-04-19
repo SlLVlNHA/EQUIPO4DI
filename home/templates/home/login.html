@@ -21,25 +21,21 @@
             e imaginar un futuro lleno de posibilidades.</p1>
         </div>
         <div class="right-container">
-            <h3 >Iniciar sesión</h3> <!-- Centra el texto "Iniciar sesión" -->
+            <h3 >Iniciar sesión</h3> 
             <form method="post">
-                {% csrf_token %}                
-                <!--<input type="email" name="username" placeholder="Correo electrónico" required>-->
+                {% csrf_token %}            
                 {{form.username}}
                 {{form.username.errors}}
-                <i class="far fa-envelope" style="color: #4C8D86;"></i>                                
-                <!--<input id="pswrd" type="password" name="password" placeholder="Contraseña" required>  
-                  -->
+                <i class="fa-solid fa-user" style="color: #4C8D86;"></i>                                
                 {{form.password}}
                 {{form.password.errors}}   
-                <i class="fas fa-lock" id="lock-icon" style="color: #4C8D86;" onclick="show()" ></i> 
-                <div class="tooltip" id="tooltip">Haz click para visualizar/ocultar la contraseña</div>                      
+                <i class="fa-regular fa-eye-slash" style="color: #4C8D86; cursor: pointer;" ></i>                        
                 <input type="submit" value="Ingresar">
             </form>
             <div class="register-link">¿No estás registrado? <a href="{% url 'register' %}">Crea una cuenta</a></div>
         </div>
     </div>
-    <script src="https://kit.fontawesome.com/3b63ff9232.js" crossorigin="anonymous"></script>          
+    <script src="https://kit.fontawesome.com/3b63ff9232.js" crossorigin="anonymous"></script>  
 </body>
 </html>
 
