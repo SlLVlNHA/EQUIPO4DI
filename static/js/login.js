@@ -3,7 +3,7 @@ function show(){
   var icon = document.querySelector('.fas');
   if (pswrd.type === "password") {
     pswrd.type = "text";
-    pswrd.style.marginTop = "20px";
+    pswrd.style.marginTop = "20px"; 
     icon.style.color = "#FA7F91";           
     pswrd.classList.add('focus-border'); // 
   }else{
