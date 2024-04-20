@@ -59,7 +59,7 @@ class CardDetailView(DetailView):
 class CardDeleteView(LoginRequiredMixin,DeleteView):
     model = Card
     success_url = '/tablero/'  # URL a la que se redirigirá después de eliminar correctamente la nota
-    template_name = 'cards/delete_card.html'  # Plantilla que se utilizará para mostrar la confirmación de eliminación
+    template_name = 'card_list.html'  # Plantilla que se utilizará para mostrar la confirmación de eliminación
     login_url = "/login/"
 
 class CardUpdateView(LoginRequiredMixin,UpdateView):
