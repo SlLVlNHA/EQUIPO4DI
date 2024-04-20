@@ -8,11 +8,13 @@ from django.views.generic import ListView, DetailView, DeleteView, CreateView, U
 
 from .filters import CardFilter
 
+
 #Creacion de una nueva nota
 class CardCreateView(LoginRequiredMixin, CreateView):
     model = Card
     form_class = CardForm
     success_url = '/tablero/'  
+    login_url = "/login/"
 
     def form_valid(self, form):
         form.instance.user = self.request.user  
@@ -22,6 +24,7 @@ class CardListView(LoginRequiredMixin, ListView):
     template_name = 'card_list.html'
     context_object_name = 'cards'
     paginate_by = 6
+    login_url = "/login/"
 
     def get_queryset(self):
         queryset = Card.objects.all()
@@ -53,15 +56,17 @@ class CardDetailView(DetailView):
     model = Card
     context_object_name = 'card'
 
-class CardDeleteView(DeleteView):
+class CardDeleteView(LoginRequiredMixin,DeleteView):
     model = Card
     success_url = '/tablero/'  # URL a la que se redirigirá después de eliminar correctamente la nota
     template_name = 'cards/delete_card.html'  # Plantilla que se utilizará para mostrar la confirmación de eliminación
+    login_url = "/login/"
 
-class CardUpdateView(UpdateView):
+class CardUpdateView(LoginRequiredMixin,UpdateView):
     model = Card
     form_class = CardForm
     success_url = '/tablero/' 
+    login_url = "/login/"
 
 
 #Mau
