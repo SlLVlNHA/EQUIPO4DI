@@ -8,4 +8,5 @@ from . import views
 
 urlpatterns = [
 	path("", views.HomeView.as_view(), name="login"),
+    path('logout_view/', views.logout_view, name='logout_view'), #Todos
 ]

@@ -95,4 +95,3 @@ class BlogSearchView(ListView):
             context['no_results_message'] = "No se encontraron tarjetas con esos criterios de búsqueda."
 
         return context
-

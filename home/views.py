@@ -8,6 +8,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from .forms import LoginForm 
 from django.contrib.auth import login,authenticate
+from django.contrib.auth import logout
 
 # Create your views here.
 class HomeView(LoginView):
@@ -25,3 +26,8 @@ class HomeView(LoginView):
             return redirect('/tablero') 
         else:            
             return render(self.request, self.template_name, {'form': form, 'error_message': 'Credenciales inválidas'})
+
+def logout_view(request):
+    logout(request)
+
+    return redirect('/login')  
