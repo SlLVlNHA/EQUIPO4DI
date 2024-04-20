@@ -12,7 +12,7 @@
 <style>
   #register-html body {  
     background-image: url('{% static "fondo4.jpg" %}');
-  }
+  }    
 </style>  
 <body>
     <div class="container">
@@ -21,21 +21,42 @@
             <p1>¡Haz de Note yard el gran aliado de tus planes!</p1>
             <form method="post">
                 {% csrf_token %}
-                <!--<input type="text" name="username" placeholder="Nombre de usuario" required>
-                <input type="email" name="email" placeholder="Correo electrónico" required>
-                <input type="password" name="password" placeholder="Contraseña" required>-->
-                {{ form.username }}
-                {{ form.username.label }}
-                {{ form.username.errors }}                    
-                {{ form.email }}
-                {{ form.email.label }}
-                {{ form.email.errors }}
-                {{ form.password1 }}
-                {{ form.password1.label }}
-                {{ form.password1.errors }}
-                {{ form.password2 }}
-                {{ form.password2.label }}
-                {{ form.password2.errors }}
+                <div class="field">                      
+                        <div class = "has-icons-left">           
+                            {{ form.username}}
+                            {{ form.username.errors }} 
+                            <span class="icon is-small is-left">
+                                <i class="fa-solid fa-user" style="color: #4C8D86;"></i>
+                            </span>
+                        </div>
+                </div>
+                <div class="field">                      
+                    <div class = "has-icons-left">                     
+                        {{ form.email }}
+                        {{ form.email.errors }}
+                    <span class="icon is-small is-left">
+                                <i class="fa-solid fa-envelope" style="color: #4C8D86;"></i>
+                            </span>
+                        </div>
+                </div>
+                <div class="field">                      
+                    <div class = "has-icons-left">                     
+                        {{ form.password1 }}
+                        {{ form.password1.errors }}
+                    <span class="icon is-small is-left">
+                                <i class="fa fa-lock" style="color: #4C8D86;"></i>
+                            </span>
+                        </div>
+                </div>
+                <div class="field">                      
+                    <div class = "has-icons-left">                     
+                        {{ form.password2 }}
+                        {{ form.password2.errors }}
+                    <span class="icon is-small is-left">
+                                <i class="fa fa-lock" style="color: #4C8D86;"></i>
+                            </span>
+                        </div>
+                </div>      
                 <input type="submit" value="Registrarse">
             </form>
             <div class="register-link">¿Ya tienes una cuenta? <a href="{% url 'login' %}">Inicia sesión</a></div>

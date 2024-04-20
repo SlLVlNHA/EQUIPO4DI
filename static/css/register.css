@@ -1,28 +1,36 @@
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+
+
 #register-html .container {
   display: flex;
   align-items: center;
-  justify-content: center; /* Centro horizontalmente */
+  justify-content: center; 
   height: 100vh;
 }
     
 #register-html .register-container {
   width: 33%;
-  height: 68vh;
-  padding: 20px;
+  height: 65vh;
+  padding: 50px; 
   border-radius: 10px;
   background-color: #f0f0f0;
   background-color: rgba(240, 240, 240, 0.85);
+  animation: fade-in 1.5s ease-out;
 }
   
 #register-html form {
   max-width: 300px;
-  margin: 0 auto;
+  margin: 0 auto;  
 }
 
 #register-html input[type="text"],
 #register-html input[type="email"],
 #register-html input[type="password"] {
-  width: calc(100% - 22px); /* 22px es el total del padding + borde */
+  width: calc(100% - 22px); 
   padding: 8px;
   margin-top: 3vh;
   border-radius: 5px;
@@ -36,9 +44,9 @@
 #register-html input[type="text"]:focus,
 #register-html input[type="email"]:focus,
 #register-html input[type="password"]:focus {
-  border-color: #4C8D86; /* Cambiar el color del borde al seleccionar */
+  border-color: #4C8D86; 
   border-width: 2px;
-  outline: none; /* Eliminar el contorno predeterminado */
+  outline: none; 
 }      
 
 #register-html input[type="submit"] {
@@ -85,10 +93,10 @@ background-image: linear-gradient(to left, #336c67, #e8697d);
 }
 
 #register-html h2{
-  margin-top: 65px;             
+  margin-top: 5px;             
   font-size: 150%;
   color: #335B57;
-  text-align: center; /* Centro el texto "Registrarse" */
+  text-align: center; 
 }
 
 #register-html p1{
@@ -107,3 +115,12 @@ background-image: linear-gradient(to left, #336c67, #e8697d);
 ::selection {
   background-color: rgba(0, 0, 0, 0.3);        
 }   
+
+#register-html form i{
+  position: absolute;
+  font-size: 95%;          
+  margin: 15px 0 0 -35px;
+  margin-top: 33px;
+}
+
+
