@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es" id="register-html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <title>Registrarse</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Literata&display=swap">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">  
+</head>
+<style>
+  #register-html body {  
+    background-image: url('{% static "fondo4.jpg" %}');
+  }    
+</style>  
+<body>
+    <div class="container">
+        <div class="register-container">
+            <h2>Crea una nueva cuenta</h2>
+            <p1>¡Haz de Note yard el gran aliado de tus planes!</p1>
+            <form method="post">
+                {% csrf_token %}
+                <div class="field">                      
+                        <div class = "has-icons-left">           
+                            {{ form.username}}
+                            {{ form.username.errors }} 
+                            <span class="icon is-small is-left">
+                                <i class="fa-solid fa-user" style="color: #4C8D86;"></i>
+                            </span>
+                        </div>
+                </div>
+                <div class="field">                      
+                    <div class = "has-icons-left">                     
+                        {{ form.email }}
+                        {{ form.email.errors }}
+                    <span class="icon is-small is-left">
+                                <i class="fa-solid fa-envelope" style="color: #4C8D86;"></i>
+                            </span>
+                        </div>
+                </div>
+                <div class="field">                      
+                    <div class = "has-icons-left">                     
+                        {{ form.password1 }}
+                        {{ form.password1.errors }}
+                    <span class="icon is-small is-left">
+                                <i class="fa fa-lock" style="color: #4C8D86;"></i>
+                            </span>
+                        </div>
+                </div>
+                <div class="field">                      
+                    <div class = "has-icons-left">                     
+                        {{ form.password2 }}
+                        {{ form.password2.errors }}
+                    <span class="icon is-small is-left">
+                                <i class="fa fa-lock" style="color: #4C8D86;"></i>
+                            </span>
+                        </div>
+                </div>      
+                <input type="submit" value="Registrarse">
+            </form>
+            <div class="register-link">¿Ya tienes una cuenta? <a href="{% url 'login' %}">Inicia sesión</a></div>
+        </div>
+    </div>
+    <script src="https://kit.fontawesome.com/3b63ff9232.js" crossorigin="anonymous"></script>
+</body>
+</html>
